@@ -9,7 +9,7 @@ Built with **Spring Boot (Java)** for backend and **React** for frontend, with a
 
 ## 🔧 Tech Stack
 
-* **Backend:** Java 17, Spring Boot
+* **Backend:** Java 21, Spring Boot
 * **Frontend:** React (Hooks, modular components)
 * **Testing:** JUnit (backend), React Testing Library (frontend)
 * **AI Mock:** Service layer returns refined strings; OpenAI integration optional
