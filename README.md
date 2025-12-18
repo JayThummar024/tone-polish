@@ -1,0 +1,179 @@
+# README.md
+
+# Tone Polish AI Assistant
+
+A lightweight internal tool that helps customer support agents rewrite rough messages into a **professional, empathetic, and concise tone**.
+Built with **Spring Boot (Java)** for backend and **React** for frontend, with a mock AI service that can be swapped with OpenAI later.
+
+---
+
+## 🔧 Tech Stack
+
+* **Backend:** Java 17, Spring Boot
+* **Frontend:** React (Hooks, modular components)
+* **Testing:** JUnit (backend), React Testing Library (frontend)
+* **AI Mock:** Service layer returns refined strings; OpenAI integration optional
+
+---
+
+## ⚡ Features
+
+* Input a draft message
+* Refine it to a professional tone
+* Loading states and error handling
+* Modular, reusable React components
+* Clean Controller → Service separation
+* Unit tests for backend and frontend
+
+---
+
+## 📁 Project Structure
+
+```
+tone-polish/
+├─ backend/
+│  ├─ src/main/java/com/example/tonepolish
+│  │  ├─ controller/       # REST API controllers
+│  │  ├─ service/          # Business logic / AI mock
+│  │  └─ TonePolishApplication.java
+│  └─ src/test/java/...    # Unit tests
+├─ frontend/
+│  ├─ src/components/      # Modular UI components
+│  ├─ src/services/        # API calls
+│  ├─ App.jsx              # Main container
+│  └─ index.js             # Entry point
+└─ README.md
+```
+
+Download Project
+
+You can **download the project as a ZIP** from GitHub:
+
+1. Go to your repository page on GitHub.  
+2. Click the **Code** button (green).  
+3. Select **Download ZIP**.  
+4. Unzip the folder anywhere on your computer.
+
+---
+
+## 🚀 Setup Instructions
+
+### 1️⃣ Backend
+
+1. Navigate to backend:
+
+```bash
+cd backend
+```
+
+2. Run the Spring Boot server:
+
+```bash
+mvn spring-boot:run
+```
+
+3. By default, backend runs on:
+
+```
+http://localhost:8080
+```
+
+4. Test endpoint manually:
+
+```bash
+curl -X POST http://localhost:8080/api/refine \
+-H "Content-Type: application/json" \
+-d '{"text":"This is a test"}'
+```
+
+✅ Should return:
+
+```
+This is a test (refined)
+```
+
+---
+
+### 2️⃣ Frontend
+
+1. Navigate to frontend:
+
+```bash
+cd frontend
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the React app:
+
+```bash
+npm start
+```
+
+4. Frontend will open at:
+
+```
+http://localhost:3000
+```
+
+5. Enter a draft message and click **Refine** to see the polished version.
+
+---
+
+## 🧪 Testing
+
+### Backend
+
+Run all tests:
+
+```bash
+cd backend
+mvn test
+```
+
+* **Service Test:** Confirms `RefineService` appends "(refined)"
+* **Controller Test:** Confirms `/api/refine` endpoint returns expected response
+---
+
+## 💡 AI Usage Transcript
+
+AI tools (ChatGPT) were used to accelerate development: As I use IntelliJ and VScode for Java and React, I used ChatGPT to keep the Backend and Frontend in the same context.
+
+| Task                     | Example Prompt                                                                                                                 | Purpose                            |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------- |
+| Generate REST Controller | "Create a Spring Boot REST controller that accepts text input and returns a refined response using a service layer"            | Boilerplate code for `/api/refine` |
+| Service Logic            | "Write a Spring Boot service that takes a string input and returns it with '(refined)' appended"                               | Mock AI logic                      |
+| React Component          | "Create a modular React component with hooks for input text, button, and result display following standard naming conventions" | Clean frontend UI                  |
+| Testing                  | "Write a JUnit test for the Spring Boot service that verifies the string is refined"                                           | Ensure backend logic correctness   |
+| Frontend API             | "Write a separate service module in React to call the backend REST API"                                                        | Modular and scalable API calls     |
+
+> Note: All AI outputs were **reviewed and adjusted** to meet clean code standards and modular design.
+
+## ⏱ Time Log
+
+| Task                   | Time   |
+| ---------------------- | ------ |
+| Project setup          | 5 min |
+| Backend development    | 15 min |
+| Frontend development   | 10 min |
+| Testing                | 10 min  |
+| Documentation & README | 8 min  |
+| **Total**              | 48 min |
+
+---
+
+## 🔧 Notes & Tradeoffs
+
+* **Mocked AI**: Used `(refined)` string instead of real OpenAI API for simplicity and speed
+* **CORS** enabled for frontend (`@CrossOrigin`)
+* **Security** removed to simplify API access
+* Minimal CSS; focus on functionality
+* Designed with modular and scalable React structure for future enhancements
+
+---
+
+Note : This Readme is also generated by AI and I refined it before publishing.

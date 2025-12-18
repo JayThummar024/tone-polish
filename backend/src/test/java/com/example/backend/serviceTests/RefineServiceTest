@@ -1,0 +1,32 @@
+package com.example.backend.serviceTests;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class RefineServiceTest {
+
+    @Autowired
+    RefineService refineService;
+
+    @Test
+    void shouldReturnPolishedText() {
+        String result = refineService.refineText("angry message");
+        assertNotNull(result);
+        assertFalse(result.isBlank());
+        assertEquals("Refined: ANGRY MESSAGE", result);
+    }
+
+    @Test
+    void shouldHandleNullInput() {
+        assertThrows(IllegalArgumentException.class, () -> refineService.refineText(null));
+    }
+
+    @Test
+    void shouldTrimInput() {
+        String result = refineService.refineText("  hello  ");
+        assertEquals("Refined: HELLO", result);
+    }
+}
