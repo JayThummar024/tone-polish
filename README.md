@@ -1,5 +1,3 @@
-# README.md
-
 # Tone Polish AI Assistant
 
 A lightweight internal tool that helps customer support agents rewrite rough messages into a **professional, empathetic, and concise tone**.
